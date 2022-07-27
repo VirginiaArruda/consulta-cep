@@ -11,3 +11,13 @@ async function getApiCep(cep) {
   const responseJson = await response.json()
   return responseJson
 }
+
+button.addEventListener('click', async () => {
+  const apiCep = await getApiCep(input.value)
+  console.log(apiCep)
+  cep.innerText = apiCep.cep
+  state.innerText = apiCep.uf
+  city.innerText = apiCep.localidade
+  street.innerText = apiCep.logradouro
+  subContainerDescription.style.display = 'block'
+})
